@@ -1,0 +1,14 @@
+version: "3.4"
+
+services:
+  demo.database:
+    image: postgres:16.1-alpine3.19
+    container_name: demo.database
+    environment:
+      - POSTGRES_DB=demo
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - ./.containers/demo-db:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
