@@ -13,21 +13,11 @@ import java.util.Optional;
 public class CarService {
 
     private final CarRepository carRepository;
-//    private final CloudflareSettings cloudflareSettings;
-//    private final RestClient restClient;
 
     @Autowired
     public CarService(CarRepository carRepository) {
         this.carRepository = carRepository;
-//        this.cloudflareSettings = cloudflareSettings;
-//
-//        //v2 direct upload
-//        restClient = RestClient.builder()
-//                .baseUrl("https://api.cloudflare.com/client/v4/accounts/" +
-//                        cloudflareSettings.getAccountId() +
-//                        "/images/")
-//                .defaultHeader("Authorization", "Bearer " + cloudflareSettings.getApiKey())
-//                .build();
+
     }
 
     public List<Car> getAllCars() {
@@ -38,6 +28,7 @@ public class CarService {
     public void createCar(Car car) {
 
         Optional<Car> carOptional = carRepository.findCarByBrandAndModel(car.getBrand(), car.getModel());
+
 
         if (carOptional.isPresent()) {
             throw new IllegalStateException("Car with this model and brand already exists");

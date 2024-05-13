@@ -15,14 +15,16 @@ public class Car {
     private int year;
     private String color;
     private String description;
+    private String imageUrl;
 
 
-    public Car(String brand, String model, int year, String color, String description) {
+    public Car(String brand, String model, int year, String color, String description, String imageUrl) {
         this.brand = brand;
         this.model = model;
         this.year = year;
         this.color = color;
         this.description = description;
+        this.imageUrl = imageUrl;
     }
 
     public Car() {
@@ -73,8 +75,16 @@ public class Car {
         return description;
     }
 
-    public void setDescription(String desc) {
-        this.description = desc;
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     @Override
@@ -85,7 +95,8 @@ public class Car {
                 ", model='" + model + '\'' +
                 ", year=" + year +
                 ", color='" + color + '\'' +
-                ", desc='" + description + '\'' +
+                ", description='" + description + '\'' +
+                ", imageUrl='" + imageUrl + '\'' +
                 '}';
     }
 }
